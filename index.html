@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с Новым Годом</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://kancelar53.ru/images/wss/articles/2018/12/47-prazdnik-novyj-god-istoriya-traditsii-prazdnovanie-novogo-goda.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .greeting, .card {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .greeting {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="greeting">
+        <h1>Введите ваше имя ниже</h1>
+        <input type="text" id="nameInput" placeholder="Ваше имя">
+        <button onclick="showCard()">Получить открытку</button>
+    </div>
+    <div class="card" id="card">
+        <h1 id="message"></h1>
+    </div>
+
+    <script>
+        function showCard() {
+            const name = document.getElementById('nameInput').value;
+            const messageElement = document.getElementById('message');
+            messageElement.innerHTML = name 
+                ? `Привет, ${name}!<br><br>С Новым годом! Пусть 2025 год станет для вас годом чудес, новых начинаний и ярких свершений. Желаю удачи во всех делах и тепла в сердцах!` 
+                : 'Поздравляю тебя с Новым Годом! Желаю счастья и удачи в новом году!';
+            
+            document.querySelector('.greeting').style.display = 'none';
+            document.getElementById('card').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
